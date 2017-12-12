@@ -1,3 +1,5 @@
+#By David Contreras
+
 from flask import Flask, render_template, json, request,redirect,session
 from werkzeug import generate_password_hash, check_password_hash
 from flask import session
@@ -8,6 +10,7 @@ from mongoengine import connect
 
 app = Flask(__name__)
 
+# Config App
 app.config['MONGODB_SETTINGS'] = {'DB': 'todoapp'}
 
 app.config['TESTING'] = True
@@ -25,6 +28,9 @@ app.config['DEBUG_TB_PANELS'] = (
 
 db = MongoEngine()
 db.init_app(app)
+
+# Routes
+# TODO Create dir for separate routes
 
 @app.route('/')
 def index():
@@ -100,6 +106,8 @@ def logout():
     session.pop('user',None)
     return redirect('/')
 
+# TODO Create directory scheme for models
+
 class User(db.Document):
     email = db.StringField(required=True)
     password = db.StringField(max_length=50)
@@ -109,7 +117,7 @@ class TodoItem(db.Document):
     status = db.BooleanField(default=False)
     user = db.ReferenceField(User)
 
-
+# Run App
 
 if __name__ == "__main__":
     app.run()
