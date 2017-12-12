@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TODO App</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+     <script src="../static/js/saveUser.js"></script>
+
+    <link href="../static/css/register.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      {% include 'navigation.html' %}
+        <div class="jumbotron">
+        <h1>TODO App - Registration</h1>
+        <form class="form-signin">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+
+        <button id="btnRegister" class="btn btn-lg btn-primary btn-block" type="button">Save</button>
+        </form>
+      </div>
+
+    {% include 'myfooter.html' %}
+
+    </div>
+  </body>
+</html>
